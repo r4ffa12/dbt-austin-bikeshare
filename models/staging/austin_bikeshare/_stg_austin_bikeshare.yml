@@ -1,0 +1,42 @@
+version: 2
+
+models:
+  - name: stg_bikeshare_trips
+
+    description: >
+      Camada de staging das viagens do Austin Bikeshare.
+      Responsável pela padronização de nomes, tipos e limpeza básica.
+
+    columns:
+      - name: trip_id
+        description: "Identificador único da viagem."
+        tests:
+          - not_null
+          - unique
+
+      - name: bike_id
+        description: "Identificador da bicicleta."
+        tests:
+          - not_null
+
+      - name: start_station_id
+        description: "Identificador da estação de origem."
+
+      - name: end_station_id
+        description: "Identificador da estação de destino."
+
+      - name: start_at
+        description: "Data e hora de início da viagem."
+        tests:
+          - not_null
+
+      - name: duration_minutes
+        description: "Duração da viagem em minutos."
+
+      - name: subscriber_type
+        description: "Tipo de cliente."
+        tests:
+          - not_null
+
+      - name: bike_type
+        description: "Tipo de bicicleta."
